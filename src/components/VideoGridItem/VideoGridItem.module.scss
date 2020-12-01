@@ -1,0 +1,20 @@
+.item {
+  display: block;
+  width: 22.5%;
+  margin: 1rem 1.25%;
+  text-decoration: none;
+  @media screen and (max-width: 960px) {
+    width: 45%;
+    margin: 1rem 2.5%;
+  }
+  @media screen and (max-width: 560px) {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  img {
+    width: 100%;
+  }
+  span {
+    color: #fff;
+  }
+}

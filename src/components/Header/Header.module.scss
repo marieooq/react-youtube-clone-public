@@ -1,0 +1,54 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  height: 56px;
+  width: 100%;
+  background-color: #202020;
+  z-index: 99;
+
+  a {
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 56px;
+    padding-left: 1rem;
+    text-decoration: none;
+  }
+
+  .item {
+    &:first-child {
+      flex-grow: 1;
+    }
+    &:last-child {
+      flex-grow: 2;
+    }
+  }
+
+  form {
+    width: 50%;
+    height: 32px;
+    display: flex;
+    margin: 12px 0;
+    @media screen and (max-width: 960px) {
+      width: 420px;
+      margin: 1rem 2.5%;
+    }
+    @media screen and (max-width: 560px) {
+      width: 90%;
+      margin: 1rem auto;
+    }
+    input {
+      width: 80%;
+      text-indent: 0.5rem;
+      border: #121212;
+      background-color: #fff;
+    }
+    button {
+      width: 20%;
+      background-color: #303030;
+      color: #fff;
+      border-color: #303030;
+    }
+  }
+}
