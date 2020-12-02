@@ -21,12 +21,12 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={Style.header}>
-      <div className={Style.item}>
+    <div className={Style.header} data-testid="header">
+      <div className={Style.item} data-testid="item1">
         <Link to="/">Video Tube</Link>
       </div>
-      <div className={Style.item}>
-        <form onSubmit={handleSubmit}>
+      <div className={Style.item} data-testid="item2">
+        <form onSubmit={handleSubmit} data-testid="form">
           <input
             type="text"
             placeholder="Search"
