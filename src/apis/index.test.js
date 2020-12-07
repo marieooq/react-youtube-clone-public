@@ -8,7 +8,7 @@ import {
 } from './index';
 
 import { rest } from 'msw';
-import { setupServer } from 'msv';
+import { setupServer } from 'msw/node';
 
 const baseURL = 'https://www.googleapis.com/youtube/v3';
 
