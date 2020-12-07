@@ -21,5 +21,5 @@ const params = {
 };
 
 const server = setupServer(rest.get(baseURL), (req, res, ctx) => {
-  return res(ctx.status(200)), ctx.json({ test: 'dammy' });
+  return res((ctx.status(200)), ctx.json({ test: 'dammy' });
 });
