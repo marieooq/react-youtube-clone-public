@@ -30,6 +30,8 @@ export const Store = createContext({
   setGlobalState: () => null,
 });
 
+console.log(Store);
+
 export const StoreProvider = ({ children }) => {
   const [globalState, setGlobalState] = useReducer(reducer, initialState);
   return (
