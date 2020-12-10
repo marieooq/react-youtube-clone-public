@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, waitFor, hook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Top from './Top';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+import { StoreProvider } from '../store/index';
 
 const popularVideos = {
   data: {
@@ -69,15 +70,19 @@ afterAll(() => {
 describe('Mocking API', () => {
   it('[Fetch success] Should fetch data correctly', async () => {
     render(
-      <Router>
-        <Top />
-      </Router>
+      <StoreProvider>
+        <Router>
+          <Top />
+        </Router>
+      </StoreProvider>
     );
+
+    // await waitFor(() => getByTestId('appleid'));
     // await screen.debug();
     // await screen.debug(await screen.getByTestId('header'));
     // await screen.debug(await screen.findByText('Vide o Tube'));
     expect(await screen.findByText('title1')).toBeInTheDocument();
-    // expect(await screen.findByText('title2')).toBeInTheDocument;
-    // expect(await screen.findByText('title3')).toBeInTheDocument;
+    // expect(await screen.findByText('title2')).toBeInTheDocument();
+    // expect(await screen.findByText('title3')).toBeInTheDocument();
   });
 });
