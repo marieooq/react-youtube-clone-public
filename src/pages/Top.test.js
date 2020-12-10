@@ -44,6 +44,72 @@ const popularVideos = {
           title: 'title1',
         },
       },
+      {
+        id: '1',
+        snippet: {
+          thumbnails: {
+            default: {
+              url: 'https://dammyimage2/default.jpg',
+              width: 120,
+              height: 90,
+            },
+            high: {
+              url: 'https://dammyimage2/hqdefault.jpg',
+              width: 480,
+              height: 360,
+            },
+            maxres: {
+              url: 'https://dammyimage2/maxresdefault.jpg',
+              width: 1280,
+              height: 720,
+            },
+            medium: {
+              url: 'https://dammyimage2/mqdefault.jpg',
+              width: 320,
+              height: 180,
+            },
+            standard: {
+              url: 'https://dammyimage2/sddefault.jpg',
+              width: 640,
+              height: 480,
+            },
+          },
+          title: 'title2',
+        },
+      },
+      {
+        id: '2',
+        snippet: {
+          thumbnails: {
+            default: {
+              url: 'https://dammyimage3/default.jpg',
+              width: 120,
+              height: 90,
+            },
+            high: {
+              url: 'https://dammyimage3/hqdefault.jpg',
+              width: 480,
+              height: 360,
+            },
+            maxres: {
+              url: 'https://dammyimage3/maxresdefault.jpg',
+              width: 1280,
+              height: 720,
+            },
+            medium: {
+              url: 'https://dammyimage3/mqdefault.jpg',
+              width: 320,
+              height: 180,
+            },
+            standard: {
+              url: 'https://dammyimage3/sddefault.jpg',
+              width: 640,
+              height: 480,
+            },
+          },
+          title: 'title3',
+        },
+      },
     ],
   },
 };
@@ -82,7 +148,7 @@ describe('Mocking API', () => {
     // await screen.debug(await screen.getByTestId('header'));
     // await screen.debug(await screen.findByText('Vide o Tube'));
     expect(await screen.findByText('title1')).toBeInTheDocument();
-    // expect(await screen.findByText('title2')).toBeInTheDocument();
-    // expect(await screen.findByText('title3')).toBeInTheDocument();
+    expect(await screen.findByText('title2')).toBeInTheDocument();
+    expect(await screen.findByText('title3')).toBeInTheDocument();
   });
 });
