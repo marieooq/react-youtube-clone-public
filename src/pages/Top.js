@@ -13,22 +13,21 @@ const Top = () => {
       setGlobalState({
         type: 'SET_POPULAR',
         payload: { popular: res.data.data.items },
+        // payload: { popular: res.data.items },
       });
     });
-  }, [setGlobalState]);
+  }, []);
 
   return (
     <Layout>
       <VideoGrid>
         {globalState.popular.map((popular) => (
-          <div data-testid="appleid" key={popular.id}>
-            <VideoGridItem
-              id={popular.id}
-              key={popular.id}
-              src={popular.snippet.thumbnails.default.url}
-              title={popular.snippet.title}
-            />
-          </div>
+          <VideoGridItem
+            id={popular.id}
+            key={popular.id}
+            src={popular.snippet.thumbnails.default.url}
+            title={popular.snippet.title}
+          />
         ))}
       </VideoGrid>
     </Layout>
