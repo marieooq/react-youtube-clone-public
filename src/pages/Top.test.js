@@ -141,10 +141,7 @@ describe('Mocking API', () => {
       </StoreProvider>
     );
 
-    // await waitFor(() => getByTestId('appleid'));
     // await screen.debug();
-    // await screen.debug(await screen.getByTestId('header'));
-    // await screen.debug(await screen.findByText('Vide o Tube'));
     expect(await screen.findByText('title1')).toBeInTheDocument();
     expect(await screen.findByText('title2')).toBeInTheDocument();
     expect(await screen.findByText('title3')).toBeInTheDocument();
