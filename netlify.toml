@@ -5,5 +5,5 @@ NETLIFY_USE_YARN = true
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 301
+  status = 200
   force = true
