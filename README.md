@@ -9,10 +9,10 @@ This is a YouTube clone application. You can search videos by keywords. When you
 
 
 ## :warning: Note
-
-You need to convert your resume into a JSON file in advance. Then, name the file `resume.json` and put it in the root.<br>
-Here is [an example of the structure of a JSON file](https://github.com/marieooq/resume_json_html/blob/master/resume.json).
-
+You have to create an API key on [YouTube developer page](https://developers.google.com/youtube/v3) in advance. After that, please make sure to create .env file in the root and write your API key like this.
+```
+REACT_APP_YOUTUBE_API_KEY="*************************"
+```
 
 ## :computer: Stack
 
