@@ -1,2 +1,3 @@
-CI= npm run build,
-NETLIFY_USE_YARN: true
+[build]
+command = "CI= npm run build"
+NETLIFY_USE_YARN = true
