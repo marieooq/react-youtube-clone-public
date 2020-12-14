@@ -4,7 +4,7 @@ import { render, screen, cleanup, waitFor, hook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Search from './Search';
 import { Router } from 'react-router-dom';
-import { setupWorker, rest } from 'msw';
+import { setup:qWorker, rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { StoreProvider } from '../store/index';
 import { createMemoryHistory } from 'history';
@@ -23,6 +23,36 @@ const items = [
         },
       },
       title: 'title1',
+    },
+  },
+  {
+    id: {
+      videoId: 'serched01',
+    },
+    snippet: {
+      thumbnails: {
+        medium: {
+          url: 'https://dammyimage1/mqdefault.jpg',
+          width: 320,
+          height: 180,
+        },
+      },
+      title: 'title2',
+    },
+  },
+  {
+    id: {
+      videoId: 'serched02',
+    },
+    snippet: {
+      thumbnails: {
+        medium: {
+          url: 'https://dammyimage1/mqdefault.jpg',
+          width: 320,
+          height: 180,
+        },
+      },
+      title: 'title3',
     },
   },
 ];
@@ -62,8 +92,7 @@ describe('Mocking API', () => {
 
     // await screen.debug();
     expect(await screen.findByText('title1')).toBeInTheDocument();
-    // expect(
-    //   await screen.findByText('selected description1')
-    // ).toBeInTheDocument();
+    expect(await screen.findByText('title2')).toBeInTheDocument();
+    expect(await screen.findByText('title3')).toBeInTheDocument();
   });
 });
