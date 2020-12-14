@@ -4,7 +4,7 @@ import { render, screen, cleanup, waitFor, hook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Search from './Search';
 import { Router } from 'react-router-dom';
-import { setup:qWorker, rest } from 'msw';
+import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { StoreProvider } from '../store/index';
 import { createMemoryHistory } from 'history';
@@ -90,7 +90,6 @@ describe('Mocking API', () => {
       </StoreProvider>
     );
 
-    // await screen.debug();
     expect(await screen.findByText('title1')).toBeInTheDocument();
     expect(await screen.findByText('title2')).toBeInTheDocument();
     expect(await screen.findByText('title3')).toBeInTheDocument();
