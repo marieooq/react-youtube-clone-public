@@ -1,7 +1,6 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, cleanup, waitFor, hook } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, cleanup } from '@testing-library/react';
 import Watch from './Watch';
 import { Router } from 'react-router-dom';
 import { rest } from 'msw';
@@ -11,14 +10,10 @@ import { createMemoryHistory } from 'history';
 
 const selectedItems = [
   {
-    id: {
-      videoId: 'selected00',
-    },
+    id: 'selected00',
     snippet: {
-      thumbnails: {
-        description: 'dummy description1',
-      },
       title: 'selected title1',
+      description: 'dummy description1',
     },
   },
 ];
@@ -78,7 +73,17 @@ describe('Mocking API', () => {
       </StoreProvider>
     );
 
+    //check if the VideoDetail component inside the Watch component is displayed correctly.
+
     expect(await screen.findByText('selected title1')).toBeInTheDocument();
+    expect(await screen.findByText('dummy description1')).toBeInTheDocument();
+
+    //check if the SideList component inside the Watch component is displayed correctly.
+    expect(screen.getByAltText('related title1')).toBeTruthy();
+    expect(screen.getByAltText('related title1')).toHaveAttribute(
+      'src',
+      'https://dammyimage1/mqdefault.jpg'
+    );
     expect(await screen.findByText('related title1')).toBeInTheDocument();
   });
 });
