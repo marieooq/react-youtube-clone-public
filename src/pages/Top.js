@@ -9,13 +9,12 @@ const Top = () => {
   const { globalState, setGlobalState } = useContext(Store);
   useEffect(() => {
     fetchPopularData().then((res) => {
-      console.log('res.data.items', res.data.items);
       setGlobalState({
         type: 'SET_POPULAR',
         payload: { popular: res.data.items },
       });
     });
-  }, []);
+  }, [setGlobalState]);
 
   return (
     <Layout>
