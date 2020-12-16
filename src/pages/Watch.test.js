@@ -9,14 +9,14 @@ import { setupServer } from 'msw/node';
 import { StoreProvider } from '../store/index';
 import { createMemoryHistory } from 'history';
 
-const selectedItems = [
+const items = [
   {
     id: {
       videoId: 'selected00',
     },
     snippet: {
       thumbnails: {
-        description: 'dummy description',
+        description: 'dummy description1',
       },
       title: 'selected title1',
     },
@@ -26,7 +26,7 @@ const selectedItems = [
 const relatedItems = [
   {
     id: {
-      videoId: 'selected00',
+      videoId: 'related00',
     },
     snippet: {
       thumbnails: {
@@ -44,7 +44,7 @@ const relatedItems = [
 const server = setupServer(
   rest.get(
     'https://www.googleapis.com/youtube/v3/videos?v=dummyId',
-    (req, res, ctx) => res(ctx.status(200), ctx.json({ selectedItems }))
+    (req, res, ctx) => res(ctx.status(200), ctx.json({ items }))
   ),
   rest.get(
     'https://www.googleapis.com/youtube/v3/search?v=dummyId',
@@ -78,9 +78,7 @@ describe('Mocking API', () => {
       </StoreProvider>
     );
 
-    // expect(await screen.findByText('selected title1')).toBeInTheDocument();
+    expect(await screen.findByText('selected title1')).toBeInTheDocument();
     // expect(await screen.findByText('related title1')).toBeInTheDocument();
-    // expect(await screen.findByText('title2')).toBeInTheDocument();
-    // expect(await screen.findByText('title3')).toBeInTheDocument();
   });
 });
