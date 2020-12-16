@@ -32,7 +32,7 @@ const searchedItems = [
     snippet: {
       thumbnails: {
         medium: {
-          url: 'https://dammyimage1/mqdefault.jpg',
+          url: 'https://dammyimage2/mqdefault.jpg',
           width: 320,
           height: 180,
         },
@@ -47,7 +47,7 @@ const searchedItems = [
     snippet: {
       thumbnails: {
         medium: {
-          url: 'https://dammyimage1/mqdefault.jpg',
+          url: 'https://dammyimage3/mqdefault.jpg',
           width: 320,
           height: 180,
         },
@@ -90,8 +90,28 @@ describe('Mocking API', () => {
       </StoreProvider>
     );
 
+    //check if the first object in popularItems is displayed correctly.
     expect(await screen.findByText('title1')).toBeInTheDocument();
+    expect(screen.getByAltText('title1')).toBeTruthy();
+    expect(screen.getByAltText('title1')).toHaveAttribute(
+      'src',
+      'https://dammyimage1/mqdefault.jpg'
+    );
+
+    //check if the second object in popularItems is displayed correctly.
     expect(await screen.findByText('title2')).toBeInTheDocument();
+    expect(screen.getByAltText('title2')).toBeTruthy();
+    expect(screen.getByAltText('title2')).toHaveAttribute(
+      'src',
+      'https://dammyimage2/mqdefault.jpg'
+    );
+
+    //check if the third object in popularItems is displayed correctly.
     expect(await screen.findByText('title3')).toBeInTheDocument();
+    expect(screen.getByAltText('title3')).toBeTruthy();
+    expect(screen.getByAltText('title3')).toHaveAttribute(
+      'src',
+      'https://dammyimage3/mqdefault.jpg'
+    );
   });
 });
