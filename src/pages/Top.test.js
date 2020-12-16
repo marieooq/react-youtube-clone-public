@@ -138,9 +138,28 @@ describe('Mocking API', () => {
       </StoreProvider>
     );
 
-    // await screen.debug();
+    //check if the first object in popularItems is displayed correctly.
     expect(await screen.findByText('title1')).toBeInTheDocument();
+    expect(screen.getByAltText('title1')).toBeTruthy();
+    expect(screen.getByAltText('title1')).toHaveAttribute(
+      'src',
+      'https://dammyimage1/default.jpg'
+    );
+
+    //check if the second object in popularItems is displayed correctly.
     expect(await screen.findByText('title2')).toBeInTheDocument();
+    expect(screen.getByAltText('title2')).toBeTruthy();
+    expect(screen.getByAltText('title2')).toHaveAttribute(
+      'src',
+      'https://dammyimage2/default.jpg'
+    );
+
+    //check if the third object in popularItems is displayed correctly.
     expect(await screen.findByText('title3')).toBeInTheDocument();
+    expect(screen.getByAltText('title3')).toBeTruthy();
+    expect(screen.getByAltText('title3')).toHaveAttribute(
+      'src',
+      'https://dammyimage3/default.jpg'
+    );
   });
 });
