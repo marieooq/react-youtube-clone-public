@@ -9,7 +9,7 @@ import { setupServer } from 'msw/node';
 import { StoreProvider } from '../store/index';
 import { createMemoryHistory } from 'history';
 
-const items = [
+const searchedItems = [
   {
     id: {
       videoId: 'serched00',
@@ -60,7 +60,7 @@ const items = [
 const server = setupServer(
   rest.get(
     'https://www.googleapis.com/youtube/v3/search?query=dummy',
-    (req, res, ctx) => res(ctx.status(200), ctx.json({ items }))
+    (req, res, ctx) => res(ctx.status(200), ctx.json({ items: searchedItems }))
   )
 );
 
