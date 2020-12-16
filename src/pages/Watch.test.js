@@ -9,7 +9,7 @@ import { setupServer } from 'msw/node';
 import { StoreProvider } from '../store/index';
 import { createMemoryHistory } from 'history';
 
-const items = [
+const selectedItems = [
   {
     id: {
       videoId: 'selected00',
@@ -44,11 +44,11 @@ const relatedItems = [
 const server = setupServer(
   rest.get(
     'https://www.googleapis.com/youtube/v3/videos?v=dummyId',
-    (req, res, ctx) => res(ctx.status(200), ctx.json({ items }))
+    (req, res, ctx) => res(ctx.status(200), ctx.json({ items: selectedItems }))
   ),
   rest.get(
     'https://www.googleapis.com/youtube/v3/search?v=dummyId',
-    (req, res, ctx) => res(ctx.status(200), ctx.json({ relatedItems }))
+    (req, res, ctx) => res(ctx.status(200), ctx.json({ items: relatedItems }))
   )
 );
 
@@ -79,6 +79,6 @@ describe('Mocking API', () => {
     );
 
     expect(await screen.findByText('selected title1')).toBeInTheDocument();
-    // expect(await screen.findByText('related title1')).toBeInTheDocument();
+    expect(await screen.findByText('related title1')).toBeInTheDocument();
   });
 });
