@@ -9,22 +9,23 @@ import { Store } from '../store/index';
 const Search = () => {
   const { globalState, setGlobalState } = useContext(Store);
   const location = useLocation();
-  const setSearchResult = async () => {
-    const searchParams = new URLSearchParams(location.search);
-    const query = searchParams.get('query');
-    if (query) {
-      await fetchSearchData(query).then((res) => {
-        setGlobalState({
-          type: 'SET_SEARCHED',
-          payload: { searched: res.data.items },
-        });
-      });
-    }
-  };
 
   useEffect(() => {
+    const setSearchResult = async () => {
+      const searchParams = new URLSearchParams(location.search);
+      const query = searchParams.get('query');
+      if (query) {
+        await fetchSearchData(query).then((res) => {
+          setGlobalState({
+            type: 'SET_SEARCHED',
+            payload: { searched: res.data.items },
+          });
+        });
+      }
+    };
     setSearchResult();
-  }, [location.search]);
+  }, [setGlobalState, location.search]);
+
   return (
     <Layout>
       <VideoGrid>
