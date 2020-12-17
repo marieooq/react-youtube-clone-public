@@ -13,7 +13,7 @@ const popularItems = [
     snippet: {
       thumbnails: {
         default: {
-          url: 'https://dammyimage1/default.jpg',
+          url: 'https://dummyimage1/default.jpg',
           width: 120,
           height: 90,
         },
@@ -26,7 +26,7 @@ const popularItems = [
     snippet: {
       thumbnails: {
         default: {
-          url: 'https://dammyimage2/default.jpg',
+          url: 'https://dummyimage2/default.jpg',
           width: 120,
           height: 90,
         },
@@ -39,7 +39,7 @@ const popularItems = [
     snippet: {
       thumbnails: {
         default: {
-          url: 'https://dammyimage3/default.jpg',
+          url: 'https://dummyimage3/default.jpg',
           width: 120,
           height: 90,
         },
@@ -82,7 +82,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('title1')).toBeTruthy();
     expect(screen.getByAltText('title1')).toHaveAttribute(
       'src',
-      'https://dammyimage1/default.jpg'
+      'https://dummyimage1/default.jpg'
     );
 
     //check if the second object in popularItems is displayed correctly.
@@ -90,7 +90,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('title2')).toBeTruthy();
     expect(screen.getByAltText('title2')).toHaveAttribute(
       'src',
-      'https://dammyimage2/default.jpg'
+      'https://dummyimage2/default.jpg'
     );
 
     //check if the third object in popularItems is displayed correctly.
@@ -98,7 +98,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('title3')).toBeTruthy();
     expect(screen.getByAltText('title3')).toHaveAttribute(
       'src',
-      'https://dammyimage3/default.jpg'
+      'https://dummyimage3/default.jpg'
     );
   });
 });

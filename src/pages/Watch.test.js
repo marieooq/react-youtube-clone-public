@@ -26,7 +26,7 @@ const relatedItems = [
     snippet: {
       thumbnails: {
         medium: {
-          url: 'https://dammyimage1/mqdefault.jpg',
+          url: 'https://dummyimage1/mqdefault.jpg',
           width: 320,
           height: 180,
         },
@@ -82,7 +82,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('related title1')).toBeTruthy();
     expect(screen.getByAltText('related title1')).toHaveAttribute(
       'src',
-      'https://dammyimage1/mqdefault.jpg'
+      'https://dummyimage1/mqdefault.jpg'
     );
     expect(await screen.findByText('related title1')).toBeInTheDocument();
   });

@@ -18,6 +18,6 @@ export const handlers = [
       ...commonParams,
       chart: 'mostPopular',
     };
-    return res(ctx.status(200), ctx.json({ params, test: 'dammy' }));
+    return res(ctx.status(200), ctx.json({ params, test: 'dummy' }));
   }),
 ];

@@ -1,7 +1,6 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, cleanup, waitFor, hook } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, cleanup } from '@testing-library/react';
 import Search from './Search';
 import { Router } from 'react-router-dom';
 import { rest } from 'msw';
@@ -17,7 +16,7 @@ const searchedItems = [
     snippet: {
       thumbnails: {
         medium: {
-          url: 'https://dammyimage1/mqdefault.jpg',
+          url: 'https://dummyimage1/mqdefault.jpg',
           width: 320,
           height: 180,
         },
@@ -32,7 +31,7 @@ const searchedItems = [
     snippet: {
       thumbnails: {
         medium: {
-          url: 'https://dammyimage2/mqdefault.jpg',
+          url: 'https://dummyimage2/mqdefault.jpg',
           width: 320,
           height: 180,
         },
@@ -47,7 +46,7 @@ const searchedItems = [
     snippet: {
       thumbnails: {
         medium: {
-          url: 'https://dammyimage3/mqdefault.jpg',
+          url: 'https://dummyimage3/mqdefault.jpg',
           width: 320,
           height: 180,
         },
@@ -95,7 +94,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('title1')).toBeTruthy();
     expect(screen.getByAltText('title1')).toHaveAttribute(
       'src',
-      'https://dammyimage1/mqdefault.jpg'
+      'https://dummyimage1/mqdefault.jpg'
     );
 
     //check if the second object in popularItems is displayed correctly.
@@ -103,7 +102,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('title2')).toBeTruthy();
     expect(screen.getByAltText('title2')).toHaveAttribute(
       'src',
-      'https://dammyimage2/mqdefault.jpg'
+      'https://dummyimage2/mqdefault.jpg'
     );
 
     //check if the third object in popularItems is displayed correctly.
@@ -111,7 +110,7 @@ describe('Mocking API', () => {
     expect(screen.getByAltText('title3')).toBeTruthy();
     expect(screen.getByAltText('title3')).toHaveAttribute(
       'src',
-      'https://dammyimage3/mqdefault.jpg'
+      'https://dummyimage3/mqdefault.jpg'
     );
   });
 });
