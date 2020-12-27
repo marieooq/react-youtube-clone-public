@@ -26,6 +26,7 @@ REACT_APP_YOUTUBE_API_KEY="*************************"
 - Used [YouTube API](https://developers.google.com/youtube/v3) 
 - Used styled components <br>
 - Used context API to manage React state
-- Unit testing using Jest and React-testing-library. I tested fetching data from mock APIs and displaying the data correctly in the DOM. Also, I wrote a blog about this topic. You can check the blog at the link "Medium" at the bottom of this page.
+- Unit testing using Jest and React-testing-library. I tested fetching data from mock APIs and displaying the data correctly in the DOM. 
 
-
+## :pencil: Blog
+I wrote a blog about unit testing on Medium. You can check the blog [here](https://marieotaki.medium.com/things-i-got-stuck-with-when-unit-testing-rest-apis-using-jest-and-react-testing-library-6dbfdbe70cf9).
